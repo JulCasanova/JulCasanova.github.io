@@ -22,8 +22,20 @@ function GetURLParameter(sParam)
     
 <p id="demo"></p>
 
+    
+    
 <script>
-document.getElementById("demo").innerHTML = GetURLParameter("fname");
+    
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+    
+   
+document.getElementById("demo").innerHTML = httpGet("https://www.homedepot.com/mcc-cart/v3/appliance/deliveryAvailability/314138205/zipCode/"+ GetURLParameter("fname") );
 </script>
 
 
